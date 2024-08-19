@@ -1,8 +1,9 @@
 <?php
 
-function addBook(&$books, string $book_name, string $book_img, string $book_desc, int $book_stars = 0, int $book_comm=0, string $book_category, bool $book_visible=false){
+function addBook(&$books, string $book_name, string $book_author, string $book_img, string $book_desc, int $book_stars = 0, int $book_comm=0, string $book_category, bool $book_visible=false){
     $new_book[count($books) + 1] = array(
         "Name" => $book_name,
+        "Author" => $book_author,
         "Img" => $book_img,
         "Desc" => $book_desc,
         "Stars" => $book_stars,
@@ -16,7 +17,14 @@ function addBook(&$books, string $book_name, string $book_img, string $book_desc
 } 
 
 
-
+function shortDesc($desc){
+    if(strlen($desc) > 100){
+        return substr($desc, 0, 150) . "...";
+    }
+    else{
+        return $desc;
+    }
+}
 
 
 

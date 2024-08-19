@@ -13,8 +13,9 @@
                     </div>
                     <div class="col-md-8">
                     <div class="card-body">
-                        <a class="text-decoration-none text-black" href="<?php echo transformUrl($book["Name"]); ?>"><h5 class="card-title"><?php echo $book["Name"]; ?></h5></a>
-                        <p class="card-text"><?php echo $book["Desc"]; ?></p>
+                        <a class="text-decoration-none text-black" href="<?php echo transformUrl($book["Name"]); ?>"><h4 class="card-title"><?php echo $book["Name"]; ?></h4></a>
+                        <p class="card-text fst-italic"><?php echo $book["Author"]; ?></p>
+                        <p class="card-text"><?php echo shortDesc($book["Desc"]); ?> <a class="text-decoration-none" href="<?php echo transformUrl($book["Name"]) ?>">Devamını oku</a> </p>
 
                         <div class="infos">
 

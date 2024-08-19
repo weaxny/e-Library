@@ -30,11 +30,18 @@
 
             </ul>
         </li>
-
+      <?php if(isset($_COOKIE["auth"]) && $_COOKIE["auth"]["role"] == "admin"):?>
+        <li class="nav-item"> <a class="nav-link" href="addBook.php">Kitap Ekle</a></li>
+      <?php endif; ?>
       </ul>
       <ul class="navbar-nav me-4">
+        <?php if(isset($_COOKIE["auth"])):?>
+        <li class="nav-item me-4"><a class="text-decoration-none text-black" href="profile.php"><i class="bi bi-person-circle"></i><span class="fw-bold ms-2"><?php echo $_COOKIE["auth"]["name"];?></a></span></li>
+        <li class="nav-item"><a class="text-decoration-none text-black" href="logout.php">Çıkış Yap</a></li>
+        <?php else: ?>
         <li class="nav-item me-4"><a class="text-decoration-none text-black" href="login.php">Giriş Yap</a></li>
-        <li class="nav-item"><a class="text-decoration-none text-black" href="register.php">Kayıt Ol</a></li>
+        <li class="nav-item me-4"><a class="text-decoration-none text-black" href="register.php">Kayıt Ol</a></li>
+        <?php endif; ?>
       </ul>
       <form action="index.php" method="get" class="d-flex me-5" role="search">
         <input class="form-control me-2" name="q" type="search" placeholder="Ara" aria-label="Search">
